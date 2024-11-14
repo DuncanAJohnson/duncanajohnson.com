@@ -1,7 +1,7 @@
 // Opens a new tab to the Github repo
 export function GithubButton() {
   return (
-    <a href="https://github.com/ElliotRoe">
+    <a href="https://github.com/DuncanAJohnson">
       <button className="card w-6 h-6 ml-1 flex items-center justify-center">
         <svg
           width="15"
@@ -25,7 +25,7 @@ export function GithubButton() {
 // Opens a new tab to the Github repo
 export function LinkedInButton() {
   return (
-    <a href="https://www.linkedin.com/in/elliot-roe/">
+    <a href="https://www.linkedin.com/in/duncan-a-johnson/">
       <button className="card w-6 h-6 ml-1 flex items-center justify-center">
         <svg
           width="15"

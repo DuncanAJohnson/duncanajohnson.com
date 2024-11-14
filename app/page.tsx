@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  allPosts,
   allPages,
   allProjects,
   allExperiences,
@@ -72,49 +71,11 @@ const ListRole = React.forwardRef<
 ListRole.displayName = "ListRole";
 
 export default function Home() {
-  const designProject = allProjects.filter(
-    (project) => project.title === "Educational AI K-12 Games"
-  )[0];
-  const buildProject = allProjects.filter(
-    (project) => project.title === "Prompt Ed"
-  )[0];
-  const teachProject = allProjects.filter(
-    (project) => project.title === "Patch"
-  )[0];
-
-  const design = (
-    <LinkHover
-      href={"https://www.playandlearnlab.com/ai-games"}
-      description={designProject.title}
-      icon={designProject.icon}
-    >
-      design
-    </LinkHover>
-  );
-  const build = (
-    <LinkHover
-      href={"https://prompt-ed.org"}
-      description={buildProject.title}
-      icon={buildProject.icon}
-    >
-      build
-    </LinkHover>
-  );
-  const teach = (
-    <LinkHover
-      href={"https://bxcoding.org"}
-      description={"Summer instructor at BX Coding"}
-      icon={"/icons/bxcoding-icon.png"}
-    >
-      teach
-    </LinkHover>
-  );
-
   const highlightOrganizaitons = [
     "BX Coding",
-    "Play and Learn Lab",
-    "Honeywell",
-    "The Technique",
+    "Verse",
+    "Tufts University Center for Engineering Education and Outreach",
+    "LittleSeed",
   ];
   const highlightedExperiences = allExperiences.filter((experience) =>
     highlightOrganizaitons.includes(experience.organization)
@@ -123,7 +84,7 @@ export default function Home() {
   const aboutArticle = allPages.filter((page) => page.title === "About")[0];
 
   const repoCommitApiUrl =
-    "https://api.github.com/repos/ElliotRoe/elliotbroe.com/commits?per_page=1";
+    "https://api.github.com/repos/DuncanAJohnson/duncanajohnson.com/commits?per_page=1";
 
   const { data, error } = useFetch<CommitInfo[]>(repoCommitApiUrl);
 
@@ -133,7 +94,7 @@ export default function Home() {
         <div className="flex flex-row card bg-background max-w-[580px] mx-auto">
           <div className="w-[250px] relative -left-7 max-sm:hidden">
             <Image
-              src="/headshot-nb-r.png"
+              src="/headshot.png"
               alt="headshot"
               fill
               style={{
@@ -144,12 +105,11 @@ export default function Home() {
           <div className="flex flex-col items-start justify-between p-10 pl-0 max-sm:pl-10">
             <p>
               <span className="text-9xl font-black text-theme-gradient">
-                Hi!
+                Duncan Johnson
               </span>
             </p>
             <p>
-              I&#39;m Elliot Roe and I love to {design}, {build}, and {teach}{" "}
-              things.
+              Educator and Social Impact Entrepreneur
             </p>
           </div>
         </div>
@@ -166,8 +126,8 @@ export default function Home() {
         <WideCard
           className="col-span-2 row-span-2"
           experience={highlightedExperiences[0]}
-          featurePhoto="/bxcoding-feature.png"
-          content="Co-founded BX Coding, a 501(c)(3) non-profit with a mission of increasing computing education accessibility"
+          featurePhoto="/BXCoding-Feature.jpeg"
+          content="Co-founded BX Coding, a 501(c)(3) computing education non-profit that has taught 500+ students"
         />
         <IconCard
           className="col-span-1 row-span-3"
