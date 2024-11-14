@@ -58,9 +58,9 @@ export const columns: ColumnDef<Experience>[] = [
 
       return (
         <Link href={experience.slug}>
-          <div className="p-2">
-            <InfoCircledIcon />
-          </div>
+          <button className="p-1 w-full border border-blue-500 text-blue-500 rounded bg-transparent hover:bg-blue-500 hover:text-white">
+            Learn More
+          </button>
         </Link>
       );
     },

@@ -92,7 +92,7 @@ export default function Home() {
     <div className="prose dark:prose-invert space-y-6 flex flex-col items-center w-full h-full pb-10">
       <div className="my-5">
         <div className="flex flex-row card bg-background max-w-[580px] mx-auto">
-          <div className="w-[250px] relative -left-7 max-sm:hidden">
+          <div className="relative w-[300px] h-[300px]">
             <Image
               src="/headshot.png"
               alt="headshot"
@@ -102,14 +102,16 @@ export default function Home() {
               }}
             />
           </div>
-          <div className="flex flex-col items-start justify-between p-10 pl-0 max-sm:pl-10">
+          <div className="flex flex-col justify-center p-10 pl-10 max-sm:pl-10 h-full">
             <p>
-              <span className="text-9xl font-black text-theme-gradient">
+              <span className="text-6xl font-black text-theme-gradient">
                 Duncan Johnson
               </span>
             </p>
             <p>
-              Educator and Social Impact Entrepreneur
+              <span className="text-xl">
+                Educator and Social Impact Entrepreneur
+              </span>
             </p>
           </div>
         </div>
@@ -127,7 +129,7 @@ export default function Home() {
           className="col-span-2 row-span-2"
           experience={highlightedExperiences[0]}
           featurePhoto="/BXCoding-Feature.jpeg"
-          content="Co-founded BX Coding, a 501(c)(3) computing education non-profit that has taught 500+ students"
+          content="Co-founded BX Coding, a 501(c)(3) computing education non-profit that has taught 500+ students in the STEM fields."
         />
         <IconCard
           className="col-span-1 row-span-3"

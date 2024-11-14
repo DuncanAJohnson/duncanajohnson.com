@@ -29,7 +29,7 @@ export const IconCard: FC<IconCardProps> = ({ experience, className }) => {
         <div className="text-2xl font-bold leading-none text-center">
           {experience.position}
         </div>
-        <div className="text-md italic leading-none">
+        <div className="text-md italic leading-none w-full text-center">
           {`@${experience.organization}`}
         </div>
       </div>

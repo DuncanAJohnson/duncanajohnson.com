@@ -9,7 +9,7 @@ import { GithubButton, LinkedInButton } from "@/components/social-button";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Elliot Roe",
+  title: "Duncan Johnson",
   description: "Made with <3",
 };
 
