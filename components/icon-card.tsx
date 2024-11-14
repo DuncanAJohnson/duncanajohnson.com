@@ -2,7 +2,7 @@ import { Experience } from "@/.contentlayer/generated";
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
 import Link from "next/link";
-import { FC, useState } from "react";
+import { FC, useState, PropsWithChildren } from "react";
 import { useInterval } from "usehooks-ts";
 import { Button } from "./ui/button";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
