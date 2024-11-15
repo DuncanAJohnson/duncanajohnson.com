@@ -36,7 +36,7 @@ export const SmallCard: FC<SmallCardProps> = ({ experience, className }) => {
         <Separator orientation="vertical" className="h-full" />
         <div className="relative h-full w-full">
           <Image
-            src={experience.logoPath ?? "/images/placeholder.png"}
+            src={experience.logoPath ?? "/icons/placeholder.png"}
             alt="BXCoding"
             fill
             className="rounded-md rounded-l-none"

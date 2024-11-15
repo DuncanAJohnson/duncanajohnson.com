@@ -19,7 +19,7 @@ export const IconCard: FC<IconCardProps> = ({ experience, className }) => {
     >
       <div className="w-32 h-32 relative">
         <Image
-          src={experience.logoPath ?? "/images/placeholder.png"}
+          src={experience.logoPath ?? "/icons/placeholder.png"}
           alt={experience.organization}
           fill
           className="rounded-xl"

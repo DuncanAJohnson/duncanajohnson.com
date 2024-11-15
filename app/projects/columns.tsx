@@ -14,9 +14,8 @@ import { Button } from "@/components/ui/button";
 import { MoreHorizontal } from "lucide-react";
 import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
-import { ExternalLinkIcon, InfoCircledIcon } from "@radix-ui/react-icons";
+import { ExternalLinkIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
-import { SkillChip } from "@/components/skill-chip";
 
 export const columns: ColumnDef<Project>[] = [
   {
@@ -29,7 +28,7 @@ export const columns: ColumnDef<Project>[] = [
         <div className="flex flex-row items-center space-x-1">
           <div className="w-6 h-6 relative">
             <Image
-              src={project.icon ?? "/images/placeholder.png"}
+              src={project.icon ?? "/icons/placeholder.png"}
               alt={project.title}
               fill
             />
@@ -49,28 +48,15 @@ export const columns: ColumnDef<Project>[] = [
     header: "Organization",
   },
   {
-    accessorKey: "skills",
-    header: "Skills",
-    filterFn: (row, id = "skills", filterValue: string[]) => {
-      if (filterValue.length == 0) return true;
-
-      const project = row.original;
-      const projectSkills: string[] = project.skills.map((skill) => skill);
-      return filterValue.every((filter) =>
-        projectSkills.some((skill) =>
-          skill.toLowerCase().includes(filter.toLowerCase())
-        )
-      );
-    },
+    accessorKey: "startDate",
+    header: "Start Date",
+  },
+  {
+    accessorKey: "endDate",
+    header: "End Date",
     cell: ({ row }) => {
       const project = row.original;
-      return (
-        <div className="flex flex-row w-12 -space-x-3 items-center justify-center hover:space-x-0.5 transition-all">
-          {project.skills.map((skill, i) => (
-            <SkillChip className="transition-all" key={i} skill={skill} />
-          ))}
-        </div>
-      );
+      return project.endDate ? project.endDate : "Present";
     },
   },
   {

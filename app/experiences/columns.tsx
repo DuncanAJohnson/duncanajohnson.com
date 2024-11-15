@@ -19,7 +19,7 @@ export const columns: ColumnDef<Experience>[] = [
         <div className="flex flex-row items-center space-x-1">
           <div className="w-6 h-6 relative">
             <Image
-              src={experience.logoPath ?? "/images/placeholder.png"}
+              src={experience.logoPath ?? "/icons/placeholder.png"}
               alt={experience.organization}
               fill
               className="rounded-md"

@@ -29,7 +29,7 @@ export const WideCard: FC<WideCardProps> = ({
           <div className="flex flex-row items-center space-x-1">
             <div className="w-8 h-8 relative">
               <Image
-                src={experience.logoPath ?? "/images/placeholder.png"}
+                src={experience.logoPath ?? "/icons/placeholder.png"}
                 alt={experience.organization}
                 fill
                 className="rounded-md"

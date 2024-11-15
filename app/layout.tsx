@@ -36,6 +36,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
               </div>
             </header>
             <main>{children}</main>
+            <footer className="mt-4 p-4 dark:bg-gray-800 text-center">
+              <p className="text-sm text-gray-600 dark:text-gray-400">
+                © 2024 Duncan Johnson. Website template by my partner in crime <a href="https://elliotbroe.com" className="underline">Elliot Roe</a>.
+              </p>
+            </footer>
           </div>
           <Analytics />
         </ThemeProvider>
