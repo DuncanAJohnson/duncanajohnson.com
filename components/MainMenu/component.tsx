@@ -25,6 +25,11 @@ const navigationOptions: {
   description: string;
 }[] = [
   {
+    title: "Home",
+    href: "/",
+    description: "The homepage.",
+  },
+  {
     title: "Experiences",
     href: "/experiences",
     description: "Learn more about my work.",
@@ -35,9 +40,9 @@ const navigationOptions: {
     description: "My projects.",
   },
   {
-    title: "Home",
-    href: "/",
-    description: "The homepage.",
+    title: "Weekly Journal",
+    href: "/weekly_journal",
+    description: "My weekly journal.",
   },
 ];
 

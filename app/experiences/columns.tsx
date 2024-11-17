@@ -4,9 +4,7 @@ import { ColumnDef } from "@tanstack/react-table";
 import { Experience } from "@/.contentlayer/generated";
 import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
-import { InfoCircledIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
-import { SkillChip } from "@/components/skill-chip";
 
 export const columns: ColumnDef<Experience>[] = [
   {

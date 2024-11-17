@@ -115,13 +115,13 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <p className="text-sm italic text-muted-foreground my-1">{`Last Updated: ${
+        <p className="text-sm italic text-muted-foreground my-1 bg-background">{`Last Updated: ${
           data
             ? new Date(data[0].commit.author.date).toLocaleDateString()
             : "-----"
         }`}</p>
       </div>
-      <article>
+      <article className="bg-background">
         <Mdx code={aboutArticle.body.code} />
       </article>
       <div className="flex flex-col h-full sm:grid sm:grid-cols-3 sm:grid-rows-3 sm:gap-4">

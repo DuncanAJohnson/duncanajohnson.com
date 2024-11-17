@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation"
-import { allPosts } from "contentlayer/generated"
+import { allJournalEntries } from "@/.contentlayer/generated";
 
 import { Metadata } from "next"
 import { Mdx } from "@/components/mdx-components"
@@ -12,7 +12,7 @@ interface PostProps {
 
 async function getPostFromParams(params: PostProps["params"]) {
   const slug = params?.slug?.join("/")
-  const post = allPosts.find((post) => post.slugAsParams === slug)
+  const post = allJournalEntries.find((post) => post.slugAsParams === slug)
 
   if (!post) {
     null
@@ -37,7 +37,7 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams(): Promise<PostProps["params"][]> {
-  return allPosts.map((post) => ({
+  return allJournalEntries.map((post) => ({
     slug: post.slugAsParams.split("/"),
   }))
 }
