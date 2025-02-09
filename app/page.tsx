@@ -133,7 +133,7 @@ export default function Home() {
         />
         <IconCard
           className="col-span-1 row-span-3"
-          experience={highlightedExperiences[2]}
+          experience={highlightedExperiences[3]}
         />
         <SmallCard
           className="sm:col-span-1 sm:row-span-1 max-sm:h-16"
@@ -141,7 +141,7 @@ export default function Home() {
         />
         <SmallCard
           className="sm:  col-span-1 sm:row-span-1 max-sm:h-16"
-          experience={highlightedExperiences[3]}
+          experience={highlightedExperiences[2]}
         />
       </div>
       <Link href="/experiences">
