@@ -39,7 +39,7 @@ export default async function ExperiencesPage() {
     });
 
     return (
-    <div className="mx-auto py-10">
+    <div className="mx-auto max-w-5xl px-4 sm:px-6 py-6 sm:py-10">
         <DataTable columns={columns} data={sortedExperiences} />
     </div>
     )

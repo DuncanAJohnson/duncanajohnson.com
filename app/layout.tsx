@@ -24,7 +24,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         className={`antialiased min-h-screen bg-dotted dark:bg-slate-950 text-slate-900 dark:text-slate-50 ${inter.className}`}
       >
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-          <div className="mx-auto w-screen h-screen p-5 max-w-5xl">
+          <div className="mx-auto w-full min-h-screen px-4 py-5 sm:px-5 max-w-5xl flex flex-col">
             <header>
               <div className="flex items-center justify-between">
                 <div className="flex flex-row">
@@ -35,10 +35,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 <MainMenu />
               </div>
             </header>
-            <main>{children}</main>
+            <main className="flex-1">{children}</main>
             <footer className="mt-4 p-4 dark:bg-gray-800 text-center">
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                © 2024 Duncan Johnson. Website template by <a href="https://elliotbroe.com" className="underline">Elliot Roe</a>.
+                © 2026 Duncan Johnson. Website template by <a href="https://elliotbroe.com" className="underline">Elliot Roe</a>.
               </p>
             </footer>
           </div>

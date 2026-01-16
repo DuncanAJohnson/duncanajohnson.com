@@ -1,9 +1,7 @@
 import { Experience } from "@/.contentlayer/generated";
-import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
 import Link from "next/link";
-import { FC, useState, PropsWithChildren } from "react";
-import { useInterval } from "usehooks-ts";
+import { FC } from "react";
 import { Button } from "./ui/button";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
 
@@ -15,9 +13,9 @@ type IconCardProps = {
 export const IconCard: FC<IconCardProps> = ({ experience, className }) => {
   return (
     <div
-      className={`mt-4 card flex flex-col p-5 justify-between items-center space-y-2 ${className}`}
+      className={`card flex flex-col p-5 sm:p-6 justify-between items-center gap-4 ${className ?? ""}`}
     >
-      <div className="w-32 h-32 relative">
+      <div className="w-20 h-20 sm:w-32 sm:h-32 relative">
         <Image
           src={experience.logoPath ?? "/icons/placeholder.png"}
           alt={experience.organization}
@@ -26,7 +24,7 @@ export const IconCard: FC<IconCardProps> = ({ experience, className }) => {
         />
       </div>
       <div className="flex flex-col items-center space-y-1">
-        <div className="text-2xl font-bold leading-none text-center">
+        <div className="text-xl sm:text-2xl font-bold leading-none text-center">
           {experience.position}
         </div>
         <div className="text-md italic leading-none w-full text-center">

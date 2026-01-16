@@ -63,9 +63,9 @@ export default async function ExperiencePage({ params }: ExperienceProps) {
   };
 
   return (
-    <article className="py-6 prose dark:prose-invert">
-      <div className="card p-10">
-        <div className="flex flex-row justify-between">
+    <article className="py-6 px-4 sm:px-0 max-w-4xl mx-auto prose dark:prose-invert">
+      <div className="card p-4 sm:p-10">
+        <div className="flex flex-col gap-6 sm:flex-row sm:justify-between sm:items-start">
           <a href={experience.websiteLink}>
             <div className="flex flex-col items-center justify-center">
               <div className="h-20 w-20 border-0 rounded-md overflow-hidden">
@@ -83,18 +83,13 @@ export default async function ExperiencePage({ params }: ExperienceProps) {
               </p>
             </div>
           </a>
-          <div className="flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center justify-center text-center sm:text-left">
             <h1 className="m-1 section-header">{experience.position}</h1>
-            <h2 className="italic">{experience.organization}</h2>
+            <h2 className="italic m-0">{experience.organization}</h2>
           </div>
-          <div className="flex flex-col items-center justify-center">
-            <p className="text-xl mt-0 text-slate-700 dark:text-slate-200">
-              {experience.startDate}
-            </p>
-            <p className="text-xl mt-0 text-slate-700 dark:text-slate-200">
-              to
-            </p>
-            <p className="text-xl mt-0 text-slate-700 dark:text-slate-200">
+          <div className="flex flex-col items-center justify-center sm:items-end">
+            <p className="text-base sm:text-xl mt-0 text-slate-700 dark:text-slate-200">
+              {experience.startDate} —{" "}
               {experience?.endDate ? experience.endDate : "Present"}
             </p>
           </div>

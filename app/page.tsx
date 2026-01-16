@@ -74,7 +74,7 @@ export default function Home() {
   const highlightOrganizaitons = [
     "BX Coding",
     "Verse",
-    "Tufts University Center for Engineering Education and Outreach",
+    "Tufts University CEEO",
     "LittleSeed",
   ];
   const highlightedExperiences = allExperiences.filter((experience) =>
@@ -92,7 +92,7 @@ export default function Home() {
     <div className="prose dark:prose-invert space-y-6 flex flex-col items-center w-full h-full pb-10">
       <div className="my-5">
         <div className="flex flex-row card bg-background max-w-[580px] mx-auto">
-          <div className="relative w-[300px] h-[300px]">
+          <div className="relative w-[300px] h-[300px] hidden sm:block">
             <Image
               src="/headshot.png"
               alt="headshot"

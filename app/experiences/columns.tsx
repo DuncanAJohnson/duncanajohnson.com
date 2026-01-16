@@ -14,7 +14,7 @@ export const columns: ColumnDef<Experience>[] = [
       const experience = row.original;
 
       return (
-        <div className="flex flex-row items-center space-x-1">
+        <div className="flex flex-row items-center space-x-2 min-w-[12rem]">
           <div className="w-6 h-6 relative">
             <Image
               src={experience.logoPath ?? "/icons/placeholder.png"}
@@ -36,6 +36,19 @@ export const columns: ColumnDef<Experience>[] = [
   {
     accessorKey: "position",
     header: "Role",
+    cell: ({ row }) => {
+      const experience = row.original;
+      const endDate = experience.endDate ? experience.endDate : "Present";
+
+      return (
+        <div className="flex flex-col">
+          <div className="text-sm leading-none">{experience.position}</div>
+          <div className="sm:hidden text-xs text-muted-foreground mt-1">
+            {experience.startDate} — {endDate}
+          </div>
+        </div>
+      );
+    },
   },
   {
     accessorKey: "startDate",
@@ -56,7 +69,7 @@ export const columns: ColumnDef<Experience>[] = [
 
       return (
         <Link href={experience.slug}>
-          <button className="p-1 w-full border border-blue-500 text-blue-500 rounded bg-transparent hover:bg-blue-500 hover:text-white">
+          <button className="px-2 py-1 w-full border border-blue-500 text-blue-500 rounded bg-transparent hover:bg-blue-500 hover:text-white text-sm whitespace-nowrap">
             Learn More
           </button>
         </Link>

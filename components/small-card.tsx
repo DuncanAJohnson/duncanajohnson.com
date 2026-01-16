@@ -3,8 +3,7 @@ import { Separator } from "@/components/ui/separator";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
 import Link from "next/link";
-import { FC, useState } from "react";
-import { useElementSize } from "usehooks-ts";
+import { FC } from "react";
 
 type SmallCardProps = {
   experience: Experience;
@@ -12,37 +11,32 @@ type SmallCardProps = {
 };
 
 export const SmallCard: FC<SmallCardProps> = ({ experience, className }) => {
-  const [squareRef, { height }] = useElementSize();
-
   return (
     <div
-      className={`mt-4 card flex flex-row justify-between items-center ${className}`}
+      className={`card flex flex-row items-stretch justify-between overflow-hidden ${className ?? ""}`}
     >
-      <div className="h-full flex flex-row">
+      <div className="flex flex-row">
         <Link
-          className="px-2 h-full flex items-center hover:bg-muted transition-colors duration-200 ease-in-out"
+          className="w-12 flex items-center justify-center hover:bg-muted transition-colors duration-200 ease-in-out"
           href={experience.slug}
+          aria-label={`Learn more about ${experience.organization}`}
         >
           <InfoCircledIcon />
         </Link>
         <Separator orientation="vertical" className="h-full" />
       </div>
-      <div className="flex items-center justify-center h-full p-5">
-        <div className="text-md font-bold leading-none">
+      <div className="flex-1 flex items-center px-4 py-3 sm:px-5 sm:py-4">
+        <div className="text-sm sm:text-md font-bold leading-snug">
           {experience.position}
         </div>
       </div>
-      <div className={`h-full flex flex-row w-20`} ref={squareRef}>
-        <Separator orientation="vertical" className="h-full" />
-        <div className="relative h-full w-full">
+      <div className="w-16 sm:w-20 shrink-0 border-l">
+        <div className="relative aspect-square w-full">
           <Image
             src={experience.logoPath ?? "/icons/placeholder.png"}
-            alt="BXCoding"
+            alt={experience.organization}
             fill
-            className="rounded-md rounded-l-none"
-            style={{
-              objectFit: "cover",
-            }}
+            className="object-cover"
           />
         </div>
       </div>

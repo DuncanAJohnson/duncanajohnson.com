@@ -1,9 +1,8 @@
 import { Experience } from "@/.contentlayer/generated";
-import { Separator } from "@/components/ui/separator";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
-import { FC, useState } from "react";
-import { useInterval } from "usehooks-ts";
+import { Separator } from "@/components/ui/separator";
+import { FC } from "react";
 import { Button } from "./ui/button";
 import Link from "next/link";
 
@@ -22,10 +21,10 @@ export const WideCard: FC<WideCardProps> = ({
 }) => {
   return (
     <div
-      className={`mt-4 card flex flex-row justify-start items-center space-x-2 ${className}`}
+      className={`card flex flex-col sm:flex-row overflow-hidden sm:min-h-[280px] ${className ?? ""}`}
     >
-      <div className="w-2/3 h-full flex flex-row items-center justify-center">
-        <div className="flex flex-col p-5">
+      <div className="order-2 sm:order-1 flex-1 flex">
+        <div className="flex flex-col p-5 sm:p-6">
           <div className="flex flex-row items-center space-x-1">
             <div className="w-8 h-8 relative">
               <Image
@@ -37,7 +36,7 @@ export const WideCard: FC<WideCardProps> = ({
             </div>
             <Separator orientation="vertical" className="h-4" />
             <div className="flex flex-col">
-              <div className="text-2xl font-bold leading-none">
+              <div className="text-xl sm:text-2xl font-bold leading-none">
                 {experience.position}
               </div>
               <div className="text-md italic leading-none">
@@ -45,7 +44,9 @@ export const WideCard: FC<WideCardProps> = ({
               </div>
             </div>
           </div>
-          <div className="text-md leading-none my-5">{content}</div>
+          <div className="text-sm sm:text-md leading-snug my-4 sm:my-5">
+            {content}
+          </div>
           <Link href={experience.slug}>
             <Button variant="outline">
               <span className="text-sm px-2">Learn more</span>
@@ -54,14 +55,14 @@ export const WideCard: FC<WideCardProps> = ({
           </Link>
         </div>
       </div>
-      <div className="relative h-full w-1/3">
-        <Separator orientation="vertical" className="h-full" />
+      <div className="order-1 sm:order-2 w-full sm:w-1/3 border-b sm:border-b-0 sm:border-l">
         <Image
           src={featurePhoto}
-          alt="BxCoding"
-          fill
-          className="rounded-md rounded-l-none"
-          style={{ objectFit: "cover" }}
+          alt={experience.organization}
+          width={1200}
+          height={800}
+          className="h-44 sm:h-full w-full object-cover"
+          priority={false}
         />
       </div>
     </div>

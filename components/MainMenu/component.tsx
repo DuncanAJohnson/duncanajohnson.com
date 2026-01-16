@@ -39,11 +39,6 @@ const navigationOptions: {
     href: "/projects",
     description: "My projects.",
   },
-  {
-    title: "Weekly Journal",
-    href: "/weekly_journal",
-    description: "My weekly journal.",
-  },
 ];
 
 export function MainMenu() {
