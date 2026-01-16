@@ -93,6 +93,10 @@ export const Project = defineDocumentType(() => ({
       type: "string",
       required: false,
     },
+    video: {
+      type: "string",
+      required: false,
+    },
     organization: {
       type: "enum",
       options: organizations,
@@ -105,14 +109,6 @@ export const Project = defineDocumentType(() => ({
     endDate: {
       type: "string",
       required: false,
-    },
-    tags: {
-      type: "list",
-      of: {
-        type: "enum",
-        options: tags,
-      },
-      required: true,
     },
   },
   computedFields,
