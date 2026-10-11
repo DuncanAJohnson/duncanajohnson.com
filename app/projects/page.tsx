@@ -2,37 +2,18 @@ import { allProjects, Project } from "contentlayer/generated";
 import Image from "next/image";
 import Link from "next/link";
 import { ExternalLinkIcon, PlayIcon } from "lucide-react";
+import { VideoThumbnail } from "@/components/video-thumbnail";
 
 function ProjectCard({ project }: { project: Project }) {
   const hasVideo = project.video && project.video.trim() !== "";
   const hasLink = project.link && project.link.trim() !== "";
-
-  const getEmbedUrl = (url: string) => {
-    if (!url) return "";
-    // This regex extracts the ID from a standard watch link or a short link
-    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|embed\?v=|watch\?v=|\&v=)([^#\&\?]*).*/;
-    const match = url.match(regExp);
-  
-    return (match && match[2].length === 11) 
-      ? `https://www.youtube.com/embed/${match[2]}`
-      : url;
-  };
 
   return (
     <div className="group relative overflow-hidden rounded-xl bg-card border border-border/50 hover:border-border transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
       {/* Video / Placeholder Section */}
       <div className="relative aspect-video bg-muted overflow-hidden">
         {hasVideo ? (
-          <iframe
-            width="560"
-            height="315"
-            src={getEmbedUrl(project.video ?? "")}
-            title={`${project.title} video`}
-            className="absolute inset-0 w-full h-full"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            referrerPolicy="strict-origin-when-cross-origin"
-          />
+          <VideoThumbnail url={project.video ?? ""} title={project.title} />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-muted to-muted-foreground/10">
             <div className="flex flex-col items-center gap-2 text-muted-foreground/50">

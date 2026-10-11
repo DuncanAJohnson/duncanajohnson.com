@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Duncan Johnson",
-  description: "Made with <3",
+  description: "Duncan Johnson — working at teacher.dev, solving one teacher’s problem per day.",
 };
 
 interface RootLayoutProps {
@@ -21,7 +21,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body
-        className={`antialiased min-h-screen bg-dotted dark:bg-slate-950 text-slate-900 dark:text-slate-50 ${inter.className}`}
+        className={`antialiased min-h-screen bg-dotted text-slate-900 dark:text-slate-50 ${inter.className}`}
       >
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <div className="mx-auto w-full min-h-screen px-4 py-5 sm:px-5 max-w-5xl flex flex-col">
@@ -36,8 +36,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
               </div>
             </header>
             <main className="flex-1">{children}</main>
-            <footer className="mt-4 p-4 dark:bg-gray-800 text-center">
-              <p className="text-sm text-gray-600 dark:text-gray-400">
+            <footer className="mt-4 p-4 text-center">
+              <p className="inline-block rounded-full bg-background px-3 py-1 text-sm text-muted-foreground">
                 © 2026 Duncan Johnson. Website template by <a href="https://elliotbroe.com" className="underline">Elliot Roe</a>.
               </p>
             </footer>

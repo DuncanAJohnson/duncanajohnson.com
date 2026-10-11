@@ -36,33 +36,33 @@
   }
 
   .dark {
-    --background: #0a0a0a;
-    --foreground: #f2f2f2;
+    --background: #020617;
+    --foreground: #f1f5f9;
 
-    --card: #0a0a0a;
-    --card-foreground: #f2f2f2;
+    --card: #0f172a;
+    --card-foreground: #f1f5f9;
 
-    --popover: #0a0a0a;
-    --popover-foreground: #f2f2f2;
+    --popover: #0f172a;
+    --popover-foreground: #f1f5f9;
 
-    --primary: #f2f2f2;
-    --primary-foreground: #1a1a1a;
+    --primary: #f1f5f9;
+    --primary-foreground: #0f172a;
 
-    --secondary: #262626;
-    --secondary-foreground: #f2f2f2;
+    --secondary: #1e293b;
+    --secondary-foreground: #f1f5f9;
 
-    --muted: #262626;
-    --muted-foreground: #a1a1a1;
+    --muted: #1e293b;
+    --muted-foreground: #94a3b8;
 
-    --accent: #262626;
-    --accent-foreground: #f2f2f2;
+    --accent: #1e293b;
+    --accent-foreground: #f1f5f9;
 
     --destructive: #e74c3c;
-    --destructive-foreground: #f2f2f2;
+    --destructive-foreground: #f1f5f9;
 
-    --border: #262626;
-    --input: #262626;
-    --ring: #d9d9d9;
+    --border: #1e293b;
+    --input: #1e293b;
+    --ring: #cbd5e1;
   }
 }
 
@@ -81,7 +81,7 @@
   }
 
   .bg-dotted {
-    @apply bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px];
+    @apply bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:16px_16px];
   }
 }
 

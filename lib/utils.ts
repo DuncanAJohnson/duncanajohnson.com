@@ -82,3 +82,6 @@ export type CommitInfo = {
     html_url: string;
   }[];
 };
+
+export const youtubeId = (url?: string) =>
+  url?.match(/(?:youtu\.be\/|v=|embed\/)([\w-]{11})/)?.[1];
