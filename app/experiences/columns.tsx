@@ -4,7 +4,6 @@ import { ColumnDef } from "@tanstack/react-table";
 import { Experience } from "@/.contentlayer/generated";
 import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
-import Link from "next/link";
 
 export const columns: ColumnDef<Experience>[] = [
   {
@@ -65,14 +64,14 @@ export const columns: ColumnDef<Experience>[] = [
   {
     id: "actions",
     cell: ({ row }) => {
-      const experience = row.original;
-
       return (
-        <Link href={experience.slug}>
-          <button className="px-2 py-1 w-full border border-blue-500 text-blue-500 rounded bg-transparent hover:bg-blue-500 hover:text-white text-sm whitespace-nowrap">
-            Learn More
-          </button>
-        </Link>
+        <button
+          onClick={row.getToggleExpandedHandler()}
+          aria-expanded={row.getIsExpanded()}
+          className="px-2 py-1 w-full border border-blue-500 text-blue-500 rounded bg-transparent hover:bg-blue-500 hover:text-white text-sm whitespace-nowrap"
+        >
+          {row.getIsExpanded() ? "Show Less" : "Learn More"}
+        </button>
       );
     },
   },

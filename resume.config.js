@@ -1,4 +1,5 @@
 export const organizations = [
+  "Independent",
   "BX Coding",
   "Tufts University Center for Engineering Education and Outreach",
   "Verse",

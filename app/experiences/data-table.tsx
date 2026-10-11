@@ -3,6 +3,7 @@
 import {
   ColumnDef,
   ColumnFiltersState,
+  ExpandedState,
   VisibilityState,
   flexRender,
   getCoreRowModel,
@@ -21,22 +22,26 @@ import {
 } from "@/components/ui/table";
 
 import { Button } from "@/components/ui/button";
+import { Mdx } from "@/components/mdx-components";
+import { Experience } from "@/.contentlayer/generated";
 import { Input } from "@/components/ui/input";
 import React from "react";
 import { useMediaQuery } from "usehooks-ts";
 
-interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[];
-  data: TData[];
+interface DataTableProps<TValue> {
+  columns: ColumnDef<Experience, TValue>[];
+  data: Experience[];
 }
 
-export function DataTable<TData, TValue>({
+export function DataTable<TValue>({
   columns,
   data,
-}: DataTableProps<TData, TValue>) {
+}: DataTableProps<TValue>) {
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
   );
+
+  const [expanded, setExpanded] = React.useState<ExpandedState>({});
 
   const isSmUp = useMediaQuery("(min-width: 640px)");
   const [columnVisibility, setColumnVisibility] =
@@ -57,10 +62,13 @@ export function DataTable<TData, TValue>({
     getPaginationRowModel: getPaginationRowModel(),
     onColumnFiltersChange: setColumnFilters,
     onColumnVisibilityChange: setColumnVisibility,
+    onExpandedChange: setExpanded,
+    getRowCanExpand: () => true,
     getFilteredRowModel: getFilteredRowModel(),
     state: {
       columnFilters,
       columnVisibility,
+      expanded,
     },
   });
 
@@ -89,19 +97,33 @@ export function DataTable<TData, TValue>({
           <TableBody>
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
-                <TableRow
-                  key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
-                >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id} className="p-2 sm:p-4">
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </TableCell>
-                  ))}
-                </TableRow>
+                <React.Fragment key={row.id}>
+                  <TableRow
+                    data-state={row.getIsSelected() && "selected"}
+                    className={row.getIsExpanded() ? "border-b-0" : undefined}
+                  >
+                    {row.getVisibleCells().map((cell) => (
+                      <TableCell key={cell.id} className="p-2 sm:p-4">
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext()
+                        )}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                  {row.getIsExpanded() && (
+                    <TableRow className="hover:bg-transparent">
+                      <TableCell
+                        colSpan={row.getVisibleCells().length}
+                        className="px-2 pb-6 pt-0 sm:px-4"
+                      >
+                        <div className="space-y-3 text-sm leading-relaxed [&_a]:underline [&_a]:underline-offset-2 [&_h2]:pt-2 [&_h2]:text-base [&_h2]:font-semibold [&_li]:mt-1 [&_ul]:list-disc [&_ul]:pl-6">
+                          <Mdx code={row.original.body.code} />
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  )}
+                </React.Fragment>
               ))
             ) : (
               <TableRow>
